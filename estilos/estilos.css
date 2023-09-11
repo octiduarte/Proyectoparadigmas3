@@ -1,17 +1,21 @@
 .header_estilo {
   font-family: monospace;
 }
+
 .navbar-brand {
   font-size: 40px !important;
 }
+
+
 .main_div_organizacion {
   display: flex !important;
   flex-direction: column;
   align-items: center;
   padding: 3em;
-  padding-left: 25em;
-  padding-right: 25em;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
+
 .main_div_estilos {
   font-family: monospace !important;
 }
@@ -38,6 +42,7 @@
   box-shadow: 4px 6px 10px gray;
   transition: 0.1s;
   text-decoration: none;
+
   .main_div_a_yellow {
     color: black !important;
   }
@@ -55,36 +60,53 @@
   padding-bottom: 10em;
 }
 
-@media only screen and (max-width: 375px) {
+.main_organizacion_box{
+display: flex !important;
+justify-content: center;
+
+}
+.carousel{
+  width: 70em !important;
+}
+
+@media only screen and (max-width: 395px) {
   .main_div_organizacion {
     padding-left: 2em;
     padding-right: 2em;
   }
+
   .main_div_separacion {
     padding-bottom: 5em;
   }
+
   .main_div_h1 {
     font-size: 2em;
   }
-  .table > :not(caption) > * > * {
+
+  .table> :not(caption)>*>* {
     padding: 2.5rem 0.5rem !important;
   }
+
   .card-img-overlay {
     position: inherit;
     color: black;
     background-color: rgb(219, 219, 219);
   }
+
   .d-none {
-    display:block !important;
+    display: block !important;
   }
 
-  .row{
+  .row {
     padding: 10px !important;
   }
 
+ 
+  
+
 }
 
-.table > :not(caption) > * > * {
+.table> :not(caption)>*>* {
   padding: 2.5rem 1.5rem;
 }
 
@@ -92,9 +114,39 @@
   text-decoration: none;
 }
 
-body{
-    font-family: monospace !important;
+body {
+  font-family: monospace !important;
 }
-.row{
-    padding: 50px 160px 100px 160px;
+
+.row {
+  padding: 50px 160px 100px 160px;
 }
+
+.me-auto {
+  margin-right: 0 !important;
+}
+
+@media (min-width: 992px) {
+  .navbar-expand-lg .navbar-collapse {
+    display: flex !important;
+    flex-basis: auto;
+    justify-content: flex-end;
+  }
+  .card-title , .card-text{
+    background-color: #b3b3b345;
+    width: fit-content;
+  }
+}
+
+.card{
+  width: 70em;
+}
+
+.form-control{
+  border:1px solid #000000 !important;
+}
+
+.table{
+  border: #000000;
+}
+

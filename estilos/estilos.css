@@ -60,13 +60,19 @@
   padding-bottom: 10em;
 }
 
-.main_organizacion_box{
-display: flex !important;
-justify-content: center;
+.main_organizacion_box {
+  display: flex !important;
+  justify-content: center;
 
 }
-.carousel{
+
+.carousel {
   width: 70em !important;
+}
+
+.producto_imagen_chica1, .producto_imagen_chica2, .producto_imagen_chica3{
+  display: none !important;
+
 }
 
 @media only screen and (max-width: 395px) {
@@ -101,8 +107,13 @@ justify-content: center;
     padding: 10px !important;
   }
 
+  .producto_imagen_chica1, .producto_imagen_chica2, .producto_imagen_chica3{
+    display: block !important;
+  }
+  .producto_imagen_grande1, .producto_imagen_grande2, .producto_imagen_grande3{
+    display: none !important;
+  }
  
-  
 
 }
 
@@ -132,21 +143,22 @@ body {
     flex-basis: auto;
     justify-content: flex-end;
   }
-  .card-title , .card-text{
+
+  .card-title,
+  .card-text {
     background-color: #b3b3b345;
     width: fit-content;
   }
 }
 
-.card{
+.card {
   width: 70em;
 }
 
-.form-control{
-  border:1px solid #000000 !important;
+.form-control {
+  border: 1px solid #000000 !important;
 }
 
-.table{
+.table {
   border: #000000;
 }
-

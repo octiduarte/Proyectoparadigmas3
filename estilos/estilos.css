@@ -167,3 +167,7 @@ body {
 .table {
   border: #000000;
 }
+
+.form-select{
+border: var(--bs-border-width) solid #000000 !important;
+}

@@ -89,6 +89,9 @@
     padding-bottom: 5em;
   }
 
+  .main_div_a{
+    margin: 20px;
+  }
   .main_div_h1 {
     font-size: 2em;
   }
@@ -126,7 +129,6 @@
 
   .botones_inicio {
     display: flex !important;
-    flex-direction: column !important;
     align-items: center !important;
   }
 

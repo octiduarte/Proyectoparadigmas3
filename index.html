@@ -17,7 +17,6 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="estilos/estilos.css" type="text/css" />
-    <link rel="stylesheet" href="carrouselInicio/carrouselInicioStylo.css">
   </head>
   <body>
     <header class="header_estilo">
@@ -38,7 +37,9 @@
           <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link nav_a" aria-current="page" href="index.html">Home</a>
+                <a class="nav-link nav_a" aria-current="page" href="index.html"
+                  >Home</a
+                >
               </li>
               <li class="nav-item">
                 <a class="nav-link nav_a" href="#">Nosotros</a>
@@ -51,22 +52,94 @@
         </div>
       </nav>
     </header>
-    <main>
+    <main class="main_org">
+      <div id="popup" style="display: none">
+        <div class="content-popup">
+          <div>
+            <div class="organizacion_popup">
+              <div class="parte_izquierda_popup">
+                <div class="close">
+                  <a href="#" id="close">X</a>
+                </div>
+                <img
+                  class="imagenGrandePopup"
+                  src="imagenes/popup/remera3.jpg"
+                  alt=""
+                />
+                <img
+                  class="imagenChicaPopup"
+                  src="imagenes/popup/remera3Movil.jpg"
+                  alt=""
+                />
+              </div>
+              <div class="parte_derecha_popup">
+                <h1>15% por tu primera compra</h1>
+                <p class="p_popup">
+                  Completa tu correo para recibir el regalo!
+                </p>
+                <form action="">
+                  <div class="col-12">
+                    <input
+                      type="text"
+                      class="form-control mail_popup"
+                      id="inputAddress"
+                      placeholder="Correo electronico"
+                    />
+                  </div>
+                  <div class="col-12">
+                    <button type="submit" class="btn btn-light confirmar_popup">
+                      Confirmar
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="popup-overlay"></div>
       <div class="main_div_organizacion main_div_estilos">
         <div class="main_div_separacion">
-          <h1 class="main_div_h1">Tu estilo, tu personalidad, tu e-comerce de ropa.</h1>
+          <h1 class="main_div_h1">
+            Tu estilo, tu personalidad, tu e-comerce de ropa.
+          </h1>
           <h4 class="main_div_h4">Viste con estilo, compra online.</h4>
         </div>
         <div class="botones_inicio">
-          <a class="main_div_a main_div_a_pink main_div_a-hover" href="tabla.html">Tabla</a>
-          <a class="main_div_a main_div_a_yellow main_div_a-hover" href="box.html">Box</a>
-          <a class="main_div_a main_div_a_yellow main_div_a-hover" href="boxCarrousel.html">Box Carrousel</a>
+          <a
+            class="main_div_a main_div_a_pink main_div_a-hover"
+            href="tabla.html"
+            >Tabla</a
+          >
+          <a
+            class="main_div_a main_div_a_yellow main_div_a-hover"
+            href="box.html"
+            >Box</a
+          >
         </div>
       </div>
 
-      <div class="slider-container">
-        <img id="sliderImage" src="imagen1.jpg" alt="Imagen 1">
-    </div>
+      <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-bs-interval="2000">
+            <img src="imagenes/CarrouselInicio/Remera.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item" data-bs-interval="2000">
+            <img src="imagenes/CarrouselInicio/remera2.jpeg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item" data-bs-interval="2000">
+            <img src="imagenes/CarrouselInicio/remera3.jpg" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
     </main>
 
     <script
@@ -74,6 +147,24 @@
       integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
       crossorigin="anonymous"
     ></script>
-    <script src="carrouselInicio/carrouselInicio.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script>
+      $(document).ready(function () {
+        // Establecer un tiempo de espera de 3 segundos (3000 milisegundos)
+        setTimeout(function () {
+          // Abrir el popup
+          $("#popup").fadeIn("slow");
+          $(".popup-overlay").fadeIn("slow");
+          $(".popup-overlay").height($(window).height());
+        }, 1000); // Fin del tiempo de espera
+
+        // Cerrar el popup al hacer clic en el botón de cerrar
+        $("#close").on("click", function () {
+          $("#popup").fadeOut("slow");
+          $(".popup-overlay").fadeOut("slow");
+          return false;
+        });
+      });
+    </script>
   </body>
 </html>

@@ -23,6 +23,13 @@
   font-family: monospace !important;
 }
 
+.nav_a{
+  background-color: black;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 20px;
+  padding: 8px;
+}
 .main_div_a {
   text-decoration: none;
   border-radius: 40px;
@@ -183,7 +190,7 @@ body {
   .navbar-expand-lg .navbar-collapse {
     display: flex !important;
     flex-basis: auto;
-    justify-content: flex-end;
+    justify-content: space-between;
   }
 
   .card-title,
@@ -284,5 +291,12 @@ main a{
 .main_org img{
     max-width: 100%;
     max-height: fit-content;
+}
+
+.org_registro{
+  border-radius: 10px;
+}
+
+.org_form_registro{
 
 }

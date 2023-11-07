@@ -5,11 +5,7 @@
 .navbar-brand {
   font-size: 40px !important;
 }
-.main_org{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+
 .main_div_organizacion {
   display: flex !important;
   flex-direction: column;
@@ -288,15 +284,21 @@ main a{
   margin-top: 4em;
 }
 
-.main_org img{
-    max-width: 100%;
-    max-height: fit-content;
-}
 
 .org_registro{
   border-radius: 10px;
 }
 
-.org_form_registro{
 
+.org_box{
+  display: flex;
+}
+
+.centrado_popup{
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.org_boxes{
+  padding: 10px 100px 10px 10px;
 }

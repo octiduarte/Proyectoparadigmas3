@@ -8,7 +8,8 @@ if (isset($_POST["nombre"]) && isset($_POST["correo"]) && isset($_POST["clave"])
         echo "<script> alert('EL USUARIO YA EXISTE EN LA BD');</script>";
     } else {
         //inserto nuevo usuario
-        $sql = "INSERT INTO usuarios (nombre,correo,clave) values ('".$_POST['nombre']."','".$_POST['correo']."','".$_POST['clave']."')";
+        $rol = 'usuario';
+        $sql = "INSERT INTO usuarios (nombre,correo,clave, rol) values ('".$_POST['nombre']."','".$_POST['correo']."','".$_POST['clave']."','".$rol."')";
         $sql = mysqli_query($con, $sql);
         if (mysqli_error($con)) {
             echo "<script> alert('ERROR NO SE PUDO INSERTAR EL REGISTRO);</script>";

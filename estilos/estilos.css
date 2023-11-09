@@ -159,6 +159,9 @@
   #carouselExampleInterval{
     display: none !important;
   }
+  .org_botones_sesion{
+    flex-direction: column;
+  }
 
 }
 
@@ -301,4 +304,12 @@ main a{
 
 .org_boxes{
   padding: 10px 100px 10px 10px;
+}
+
+.org_botones_sesion{
+  display: flex;
+}
+
+.separacion_botones_sesion{
+  padding: 10px;
 }

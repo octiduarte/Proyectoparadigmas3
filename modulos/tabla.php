@@ -11,23 +11,23 @@
     <tbody>
         <tr>
             <th scope="row">1</th>
-            <td>Harcore pleasure black</td>
-            <td>10000$</td>
-            <td>M</td>
+            <td></td>
+            <td></td>
+            <td></td>
             <td><a class="btn btn-dark" href="index.php?modulo=producto">Ver</a></td>
         </tr>
         <tr>
             <th scope="row">2</th>
-            <td>iron Maiden black</td>
-            <td>15000$</td>
-            <td>L</td>
+            <td></td>
+            <td></td>
+            <td></td>
             <td><a class="btn btn-dark" href="index.php?modulo=producto">Ver</a></td>
         </tr>
         <tr>
             <th scope="row">2</th>
-            <td>Candy</td>
-            <td>20000$</td>
-            <td>Xl</td>
+            <td></td>
+            <td></td>
+            <td></td>
             <td><a class="btn btn-dark" href="index.php?modulo=producto">Ver</a></td>
         </tr>
     </tbody>

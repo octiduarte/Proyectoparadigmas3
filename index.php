@@ -41,14 +41,27 @@ conectar();
               <a class="nav-link " href="#">Contactos</a>
             </li>
           </ul>
-          <div>
+          <div class="org_botones_sesion">
             <?php
             if (!empty($_SESSION['nombre_usuario'])) {
               ?>
-              <p>Bienvenido
-                <?php echo $_SESSION['nombre_usuario']; ?>
-              </p>
-              <a href="index.php?modulo=iniciar_sesion&salir=ok" class="nav_a">Cerrar Sesión</a>
+              <?php
+              if ($_SESSION['roles'] == 'admin') {
+                ?>
+                <div class="separacion_botones_sesion">
+                  <a href="index.php?modulo=carga" class="nav_a">Cargar Productos</a>
+                </div>
+                <?php
+              }
+              ?>
+              <div class="separacion_botones_sesion">
+                <p>Bienvenido
+                  <?php echo $_SESSION['nombre_usuario']; ?>
+                </p>
+              </div>
+              <div class="separacion_botones_sesion">
+                <a href="index.php?modulo=iniciar_sesion&salir=ok" class="nav_a">Cerrar Sesión</a>
+              </div>
               <?php
             } else {
               ?>
@@ -57,7 +70,6 @@ conectar();
               <?php
             }
             ?>
-
           </div>
         </div>
       </div>
@@ -65,6 +77,7 @@ conectar();
   </header>
   <main class="main_org">
     <?php
+
     if (!empty($_GET['modulo'])) {
       include('modulos/' . $_GET['modulo'] . '.php');
     } else {
@@ -108,36 +121,35 @@ conectar();
           <h4 class="main_div_h4">Viste con estilo, compra online.</h4>
         </div>
         <div class="botones_inicio">
-          <a class="main_div_a main_div_a_pink main_div_a-hover" href="index.php?modulo=tabla">Tabla</a>
-          <a class="main_div_a main_div_a_yellow main_div_a-hover" href="index.php?modulo=box">Box</a>
+          <a class="main_div_a main_div_a_yellow main_div_a-hover" href="index.php?modulo=box">Mostrar Productos</a>
         </div>
         <div id="carouselExampleInterval" class="carousel slide carrousel_org" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active" data-bs-interval="2000">
-            <img src="imagenes/CarrouselInicio/Remera.jpg" class="d-block w-100" alt="...">
+          <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="2000">
+              <img src="imagenes/CarrouselInicio/Remera.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item" data-bs-interval="2000">
+              <img src="imagenes/CarrouselInicio/remera2.jpeg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item" data-bs-interval="2000">
+              <img src="imagenes/CarrouselInicio/remera3.jpg" class="d-block w-100" alt="...">
+            </div>
           </div>
-          <div class="carousel-item" data-bs-interval="2000">
-            <img src="imagenes/CarrouselInicio/remera2.jpeg" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item" data-bs-interval="2000">
-            <img src="imagenes/CarrouselInicio/remera3.jpg" class="d-block w-100" alt="...">
-          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
-          data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
-          data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
       </div>
-      </div>
-      
       <?php
     }
+
     ?>
   </main>
 

@@ -111,8 +111,7 @@ conectar();
           <a class="main_div_a main_div_a_pink main_div_a-hover" href="index.php?modulo=tabla">Tabla</a>
           <a class="main_div_a main_div_a_yellow main_div_a-hover" href="index.php?modulo=box">Box</a>
         </div>
-      </div>
-      <div id="carouselExampleInterval" class="carousel slide carrousel_org" data-bs-ride="carousel">
+        <div id="carouselExampleInterval" class="carousel slide carrousel_org" data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active" data-bs-interval="2000">
             <img src="imagenes/CarrouselInicio/Remera.jpg" class="d-block w-100" alt="...">
@@ -135,6 +134,8 @@ conectar();
           <span class="visually-hidden">Next</span>
         </button>
       </div>
+      </div>
+      
       <?php
     }
     ?>

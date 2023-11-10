@@ -25,5 +25,3 @@ if (mysqli_num_rows($sql) != 0) {
     }
 }
 ?>
-
-

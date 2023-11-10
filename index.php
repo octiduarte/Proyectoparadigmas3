@@ -48,6 +48,9 @@ conectar();
               <?php
               if ($_SESSION['roles'] == 'admin') {
                 ?>
+                <div class= "separacion_botones_sesion">
+                  <a href="index.php?modulo=tabla" class="nav_a">Tabla</a>
+                </div>
                 <div class="separacion_botones_sesion">
                   <a href="index.php?modulo=carga" class="nav_a">Cargar Productos</a>
                 </div>

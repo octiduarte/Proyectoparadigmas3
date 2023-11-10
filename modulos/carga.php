@@ -55,3 +55,43 @@ if (isset($_POST["nombre"]) && isset($_POST["descripcion"])) {
         <button type="submit" class="btn btn-dark">Cargar</button>
     </form>
 </div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Opciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+        $sql = "SELECT id, nombre,precio FROM ropas where eliminado = 0 ORDER BY id";
+        $sql = mysqli_query($con, $sql);
+        if (mysqli_num_rows($sql) != 0) {
+            while ($r = mysqli_fetch_array($sql)) {
+                ?>
+                <tr>
+                    <th scope="row">
+                        <?php echo $r['id']; ?>
+                    </th>
+                    <td>
+                        <?php echo $r['nombre']; ?>
+                    </td>
+                    <td>
+                    <?php echo $r['precio']; ?>$
+                    </td>
+                    <td> <a href="index.php?modulo=procesar_disfraz&accion=editar&id=<?php echo $r['id']; ?>">Editar</a>
+                        -
+                        <a
+                            href="index.php?modulo=tabla&accion=guardar_eliminar&id=<?php echo $r['id']; ?>">Eliminar</a>
+                    </td>
+                </tr>
+                <tr>
+                    <?php
+            }
+        }
+        ?>
+    </tbody>
+</table>

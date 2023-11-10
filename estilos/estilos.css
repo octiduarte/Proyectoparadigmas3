@@ -232,6 +232,7 @@ body {
   border-radius: 4px;
   background-color: #000000;
   box-shadow: 0 2px 5px #666666;
+  
 }
 .content-popup h2 {
   color: #ffffff;
@@ -308,8 +309,13 @@ main a{
 
 .org_botones_sesion{
   display: flex;
+  align-items: center;
 }
 
 .separacion_botones_sesion{
   padding: 10px;
+}
+
+p{
+  margin: 0 !important;
 }

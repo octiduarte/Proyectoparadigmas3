@@ -25,6 +25,7 @@
   text-decoration: none;
   border-radius: 20px;
   padding: 8px;
+  text-align: center;
 }
 .main_div_a {
   text-decoration: none;
@@ -35,6 +36,9 @@
 .main_div_a_pink {
   background-color: #dd356e;
   color: rgb(255, 255, 255);
+  text-decoration: none;
+  border-radius: 20px;
+  padding: 8px;
 }
 
 .main_div_a_yellow {
@@ -117,19 +121,6 @@
     padding: 10px !important;
   }
 
-  .producto_imagen_chica1,
-  .producto_imagen_chica2,
-  .producto_imagen_chica3,
-  .imagenChicaPopup {
-    display: block !important;
-  }
-  .producto_imagen_grande1,
-  .producto_imagen_grande2,
-  .producto_imagen_grande3,
-  .imagenGrandePopup {
-    display: none !important;
-  }
-
   .botones_inicio {
     display: flex !important;
     align-items: center !important;
@@ -160,6 +151,19 @@
     display: none !important;
   }
   .org_botones_sesion{
+    flex-direction: column;
+  }
+
+  .org_ficha_unidad{
+    flex-direction: column;
+    align-items: center;
+    padding: 5px !important;
+  }
+
+  .org_ficha{
+    margin: 2rem;
+  }
+  .org_box{
     flex-direction: column;
   }
 
@@ -303,10 +307,6 @@ main a{
   justify-content: center !important;
 }
 
-.org_boxes{
-  padding: 10px 100px 10px 10px;
-}
-
 .org_botones_sesion{
   display: flex;
   align-items: center;
@@ -318,4 +318,35 @@ main a{
 
 p{
   margin: 0 !important;
+}
+
+.org_ficha{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.org_ficha_unidad{
+  border: 1px solid;
+  border-radius: 20px;
+  display: flex;
+  padding: 20px;
+}
+.org_a_box{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.org_ficha_separacion{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.org_box_separacion{
+  display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }

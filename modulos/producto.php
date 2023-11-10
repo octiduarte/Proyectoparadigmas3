@@ -1,22 +1,37 @@
-<div class="main_organizacion_box">
-    <div class="card text-bg-dark">
-        <img src="imagenes/Movil/Remera1.jpg" class="card-img producto_imagen_chica1" alt="" />
-        <img src="imagenes/Remera.jpg" class="card-img producto_imagen_grande1" alt="..." />
-        <div class="card-img-overlay">
-            <h5 class="card-title">Harcore Pleasure</h5>
-            <p class="card-text">Remera manga corta con cuello redondo. Esta prenda cuenta con dos estampas, una pequeña
-                estampa en el pecho y una segunda estampa en la espalda.</p>
-            <p class="card-text">
-                <small>Confeccionada en un jersey pesado para darle mayor estructura a la prenda. </small>
+<div class="org_ficha">
+    <?php
+    if ($_GET['accion'] == 'ver_ficha') {
+        $url = 'index.php?modulo=producto&accion=ver_fichar&id=' . $_GET['id'];
+        $sql = "SELECT *FROM ropas WHERE id = " . $_GET['id'];
+        $sql = mysqli_query($con, $sql);
+        if (mysqli_num_rows($sql) != 0) {
+            $r = mysqli_fetch_array($sql);
+        }
+    }
+    ?>
+    <div class="org_ficha_unidad">
+        <img src="imagenes/<?php echo $r['foto']; ?>" alt="" width="100%">
+        <div class="org_ficha_separacion">
+            <h1>
+                <?php echo $r['nombre']; ?>
+            </h1>
+            <hr>
+
+            <p>
+                <?php echo $r['descripcion']; ?>
             </p>
-            <p class="card-text">
-                <small>Oversize, Si preferís un calce más holgado, te sugerimos llevar un talle más grande del que
-                    habitualmente usas.</small>
-            </p>
-            <p class="card-text"><small>El modelo mide 1,87m y usa un talle L</small></p>
-            <p class="card-text"><small>Composición: 100% Algodón</small></p>
-            <p class="card-text"><small>Origen: Argentina</small></p>
-            <a class="btn btn-dark" href="index.php?modulo=formulario">Comprar</a>
+            <h4>
+                <?php echo $r['precio']; ?>$
+            </h4>
+            <a href="">Ver medios de pago</a>
+            <p>Llega entre el jueves y el martes 21 de noviembre por 2574,99$ Antes: 2879,99$</p>
+            <a href="">Mas formas de entrega</a>
+            <strong>Stock disponible</strong>
+            <a href="">Devolucion gratis</a>
+            <p>Tenes 30 dias desde que lo recibis</p>
+            <a class="nav_a" href="">Agregar a carrito</a>
         </div>
     </div>
+    <?php
+    ?>
 </div>

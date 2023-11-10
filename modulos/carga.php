@@ -56,7 +56,6 @@ if ($_GET['accion'] == 'guardar_editar') {
         echo "<script> alert('ROPA editada con exito');</script>";
     else
         echo "<script> alert('ERROR NO SE PUDO editar el producto);</script>";
-
 }
 
 
@@ -76,90 +75,91 @@ if ($_GET['accion'] == 'guardar_eliminar') {
 ?>
 
 
-
-<div>
-    <h1>Carga de Productos</h1>
-    <hr>
-</div>
-<div class="org_registro">
-    <?php
-    if ($_GET['accion'] == 'editar') {
-        $url = 'index.php?modulo=carga&accion=guardar_editar&id=' . $_GET['id'];
-        $sql = "SELECT *FROM ropas WHERE id = " . $_GET['id'];
-        $sql = mysqli_query($con, $sql);
-        if (mysqli_num_rows($sql) != 0) {
-            $r = mysqli_fetch_array($sql);
-        }
-    } else {
-        $url = 'index.php?modulo=carga&accion=guardar_insertar';
-        $r['nombre'] = $r['descripcion'] = $r['precio'] = $r['foto'] = '';
-    }
-    ?>
-    <form class="org_form_registro" form action="<?php echo $url; ?>" method="POST" enctype="multipart/form-data">
-        <div class="mb-3">
-            <label class="form-label">Nombre del producto</label>
-            <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo $r['nombre']; ?>">
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Descripcion</label>
-            <input type="text" class="form-control" id="descripcion" name="descripcion"
-                value="<?php echo $r['descripcion']; ?>">
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Precio</label>
-            <input type="number" class="form-control" id="precio" name="precio" value="<?php echo $r['precio']; ?>">
-        </div>
-        <div class="mb-3">
-            <label class="form-label">foto</label>
-            <input type="file" class="form-control" id="foto" name="foto">
-            <?php
-            if (!empty($r['foto'])) {
-                ?>
-                <img src="imagenes/<?php echo $r['foto']; ?>" width="50%">
-                <?php
-            }
-            ?>
-        </div>
-        <button type="submit" class="btn btn-dark">Cargar</button>
-    </form>
-</div>
-
-<table class="table">
-    <thead>
-        <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Precio</th>
-            <th scope="col">Opciones</th>
-        </tr>
-    </thead>
-    <tbody>
+<div class="org_carga_form">
+    <div>
+        <h1>Carga de Productos</h1>
+        <hr>
+    </div>
+    <div class="org_registro">
         <?php
-        $sql = "SELECT id, nombre,precio FROM ropas where eliminado = 0 ORDER BY id";
-        $sql = mysqli_query($con, $sql);
-        if (mysqli_num_rows($sql) != 0) {
-            while ($r = mysqli_fetch_array($sql)) {
-                ?>
-                <tr>
-                    <th scope="row">
-                        <?php echo $r['id']; ?>
-                    </th>
-                    <td>
-                        <?php echo $r['nombre']; ?>
-                    </td>
-                    <td>
-                        <?php echo $r['precio']; ?>$
-                    </td>
-                    <td> <a href="index.php?modulo=carga&accion=editar&id=<?php echo $r['id']; ?>">Editar</a>
-                        -
-                        <a
-                            href="javascript:if(confirm('Desea eliminar el registro?')) window.location='index.php?modulo=carga&accion=guardar_eliminar&id=<?php echo $r['id']; ?>'">Eliminar</a>
-                    </td>
-                </tr>
-                <tr>
-                    <?php
+        if ($_GET['accion'] == 'editar') {
+            $url = 'index.php?modulo=carga&accion=guardar_editar&id=' . $_GET['id'];
+            $sql = "SELECT *FROM ropas WHERE id = " . $_GET['id'];
+            $sql = mysqli_query($con, $sql);
+            if (mysqli_num_rows($sql) != 0) {
+                $r = mysqli_fetch_array($sql);
             }
+        } else {
+            $url = 'index.php?modulo=carga&accion=guardar_insertar';
+            $r['nombre'] = $r['descripcion'] = $r['precio'] = $r['foto'] = '';
         }
         ?>
-    </tbody>
-</table>
+        <form class="org_form_registro" form action="<?php echo $url; ?>" method="POST" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label class="form-label">Nombre del producto</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo $r['nombre']; ?>">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Descripcion</label>
+                <input type="text" class="form-control" id="descripcion" name="descripcion" value="<?php echo $r['descripcion']; ?>">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Precio</label>
+                <input type="number" class="form-control" id="precio" name="precio" value="<?php echo $r['precio']; ?>">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">foto</label>
+                <input type="file" class="form-control" id="foto" name="foto">
+                <?php
+                if (!empty($r['foto'])) {
+                ?>
+                    <img src="imagenes/<?php echo $r['foto']; ?>" width="50%">
+                <?php
+                }
+                ?>
+            </div>
+            <button type="submit" class="btn btn-dark">Cargar</button>
+        </form>
+    </div>
+</div>
+
+<div class="org_carga_tabla">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            $sql = "SELECT id, nombre,precio FROM ropas where eliminado = 0 ORDER BY id";
+            $sql = mysqli_query($con, $sql);
+            if (mysqli_num_rows($sql) != 0) {
+                while ($r = mysqli_fetch_array($sql)) {
+            ?>
+                    <tr>
+                        <th scope="row">
+                            <?php echo $r['id']; ?>
+                        </th>
+                        <td>
+                            <?php echo $r['nombre']; ?>
+                        </td>
+                        <td>
+                            <?php echo $r['precio']; ?>$
+                        </td>
+                        <td> <a href="index.php?modulo=carga&accion=editar&id=<?php echo $r['id']; ?>">Editar</a>
+                            -
+                            <a href="javascript:if(confirm('Desea eliminar el registro?')) window.location='index.php?modulo=carga&accion=guardar_eliminar&id=<?php echo $r['id']; ?>'">Eliminar</a>
+                        </td>
+                    </tr>
+                    <tr>
+                <?php
+                }
+            }
+                ?>
+        </tbody>
+    </table>
+</div>

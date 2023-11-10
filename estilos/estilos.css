@@ -167,6 +167,14 @@
     flex-direction: column;
   }
 
+  .org_carga_form{
+    margin:1rem !important;
+  }
+  
+  .org_carga_tabla{
+    margin:1rem !important;
+  }
+
 }
 
 .table > :not(caption) > * > * {
@@ -350,3 +358,20 @@ p{
     flex-direction: column;
     justify-content: space-evenly;
 }
+
+
+.org_carga_form{
+  margin:5rem;
+}
+
+.org_carga_tabla{
+  text-align: center;
+  margin: 5rem;
+}
+
+.logo{
+  border: 1px solid;
+  border-radius: 10px;
+  padding: 10px;
+}
+

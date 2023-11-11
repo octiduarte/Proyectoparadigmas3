@@ -343,8 +343,6 @@ p{
 }
 .org_a_box{
   display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .org_ficha_separacion{
@@ -375,3 +373,8 @@ p{
   padding: 10px;
 }
 
+.org_carrito{
+  display: flex;
+  align-items: center;
+    flex-direction: column;
+}

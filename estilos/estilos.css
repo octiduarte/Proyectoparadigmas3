@@ -104,7 +104,7 @@
   }
 
   .table > :not(caption) > * > * {
-    padding: 2.5rem 0.5rem !important;
+    padding: 0rem 0rem !important;
   }
 
   .card-img-overlay {

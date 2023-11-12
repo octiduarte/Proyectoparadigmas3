@@ -65,8 +65,22 @@ if ($_GET['accion'] == 'eliminar_carrito') {
             ?>
         </tbody>
     </table>
-    <div>
-        <a class="nav_a"
-            href="index.php?modulo=formulario&accion=form&id=<?php echo $usuario_id; ?>">Continuar</a>
-    </div>
+    <?php
+    // Verifica si hay al menos un producto en el carrito antes de mostrar el enlace "Continuar"
+    $sql = "SELECT COUNT(*) as total FROM carrito WHERE usuario_id = '$usuario_id' ";
+    $result = mysqli_query($con, $sql);
+    $row = mysqli_fetch_assoc($result);
+    $totalProductosEnCarrito = $row['total'];
+
+    if ($totalProductosEnCarrito > 0) {
+        ?>
+        <div>
+            <a class="nav_a" href="index.php?modulo=formulario&accion=form&id=<?php echo $usuario_id; ?>">Continuar</a>
+        </div>
+        <?php
+    }
+    else{
+        echo "<h3> Carrito vacio </h3>";
+    }
+    ?>
 </div>

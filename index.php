@@ -121,7 +121,7 @@ conectar();
                       placeholder="Correo electronico" />
                   </div>
                   <div class="col-12">
-                    <button type="submit" class="btn btn-light confirmar_popup">
+                    <button type="submit" id="conf" class="btn btn-light confirmar_popup">
                       Confirmar
                     </button>
                   </div>
@@ -184,10 +184,10 @@ conectar();
         $("#popup").fadeIn("slow");
         $(".popup-overlay").fadeIn("slow");
         $(".popup-overlay").height($(window).height());
-      }, 1000); // Fin del tiempo de espera
+      }, 2000); // Fin del tiempo de espera
 
       // Cerrar el popup al hacer clic en el botón de cerrar
-      $("#close").on("click", function () {
+      $("#close, #conf").on("click", function () {
         $("#popup").fadeOut("slow");
         $(".popup-overlay").fadeOut("slow");
         return false;

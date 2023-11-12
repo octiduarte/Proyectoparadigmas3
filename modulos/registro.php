@@ -14,6 +14,7 @@ if (isset($_POST["nombre"]) && isset($_POST["correo"]) && isset($_POST["clave"])
             echo "<script> alert('ERROR NO SE PUDO INSERTAR EL REGISTRO);</script>";
         } else {
             echo "<script> alert('Registro insertado con exito');</script>";
+            echo "<script>window.location='index.php?modulo=iniciar_sesion';</script>";
         }
     }
 }

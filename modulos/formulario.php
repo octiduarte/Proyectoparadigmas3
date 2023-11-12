@@ -50,6 +50,7 @@ if ($_GET['accion'] == 'cargar_tarjeta') {
         <a class="btn btn-danger" href="index.php?modulo=formulario&accion=confirmar_compra">Confirmar Compra</a>
     </div>
     <?php
+    
 }
 ?>
 <?php
@@ -92,18 +93,19 @@ if ($_GET['accion'] == 'confirmar_compra') {
     $usuario_id = $_SESSION['id'];
     $sql = "INSERT INTO compras (usuario_id, total) VALUES ('$usuario_id', 0)";
     $sql = mysqli_query($con, $sql);
-    $id_compra = mysqli_insert_id($con);
+    $id_compra = mysqli_insert_id($con); //Recuperamos id de la compra recien creada
+
     // Calcular el total del carrito directamente en la base de datos
 
     // Inicializar el total de la compra
     $total_compra = 0;
 
     // Obtener los productos del carrito para el usuario actual
-    $sql_carrito = "SELECT producto_id, cantidad FROM carrito WHERE usuario_id = '$usuario_id'";
+    $sql_carrito = "SELECT producto_id, cantidad FROM carrito WHERE usuario_id = '$usuario_id'"; //Obtenemos los productos que compro este usuario
     $resultado_carrito = mysqli_query($con, $sql_carrito);
 
     if ($resultado_carrito) {
-        while ($fila_carrito = mysqli_fetch_assoc($resultado_carrito)) {
+        while ($fila_carrito = mysqli_fetch_assoc($resultado_carrito)) { //Recorremos cada producto del carrito y los insertamos al id en una variable y a la cantidad en otra
             $producto_id = $fila_carrito['producto_id'];
             $cantidad = $fila_carrito['cantidad'];
 
@@ -117,7 +119,7 @@ if ($_GET['accion'] == 'confirmar_compra') {
                 $subtotal = $precio_unitario * $cantidad;
                 $total_compra += $subtotal;
 
-                // Crear un registro en la tabla 'detalle_compra' para cada producto
+                // Crear un registro en la tabla 'detalle_compra' para cada producto con todos los datos reunidos
                 $sql_detalle = "INSERT INTO detalle_compra (compras_id, producto_id, cantidad, precio_unitario) VALUES ('$id_compra', '$producto_id', '$cantidad', '$precio_unitario')";
                 $resultado_detalle = mysqli_query($con, $sql_detalle);
 
@@ -129,10 +131,11 @@ if ($_GET['accion'] == 'confirmar_compra') {
         $sql_actualizar_total = "UPDATE compras SET total = '$total_compra' WHERE id = '$id_compra'";
         $resultado_actualizar_total = mysqli_query($con, $sql_actualizar_total);
 
-        if ($resultado_actualizar_total) {
+        if ($resultado_actualizar_total) { //Si se ejecuto es porque se realizo la compra entonces borramos carrito
             $sql_limpiar_carrito = "DELETE FROM carrito WHERE usuario_id = '$usuario_id'";
             mysqli_query($con, $sql_limpiar_carrito);
             echo "<script> alert('COMPRA REALIZADA! MUCHAS GRACIAS!');</script>";
+            echo "<script>window.location='index.php';</script>";
         }
     }
 }

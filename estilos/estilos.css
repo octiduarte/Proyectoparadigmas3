@@ -86,7 +86,7 @@
   display: none !important;
 }
 
-@media only screen and (max-width: 395px) {
+@media only screen and (max-width: 415px) {
   .main_div_organizacion {
     padding-left: 2em;
     padding-right: 2em;
@@ -152,6 +152,7 @@
   }
   .org_botones_sesion{
     flex-direction: column;
+    align-items: flex-start !important;
   }
 
   .org_ficha_unidad{
@@ -164,7 +165,7 @@
     margin: 2rem;
   }
   .org_box{
-    flex-direction: column;
+    grid-template-columns: auto !important;
   }
 
   .org_carga_form{
@@ -174,6 +175,8 @@
   .org_carga_tabla{
     margin:1rem !important;
   }
+
+
 
 }
 
@@ -307,7 +310,8 @@ main a{
 
 
 .org_box{
-  display: flex;
+  display: grid;
+  grid-template-columns: 30% 50%;
 }
 
 .centrado_popup{
@@ -376,5 +380,15 @@ p{
 .org_carrito{
   display: flex;
   align-items: center;
+    flex-direction: column;
+}
+
+.tbody, td, tfoot, th, thead, tr {
+  border-width: 1px !important; 
+}
+
+.org_miscompras{
+display: flex;
+align-items: center;
     flex-direction: column;
 }

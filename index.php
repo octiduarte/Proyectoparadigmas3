@@ -38,48 +38,59 @@ conectar();
               <a class="nav-link " href="#">Nosotros</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link " href="#">Contactos</a>
+              <a class="nav-link " href="index.php?modulo=box">Productos</a>
             </li>
+            <?php
+            if (!empty($_SESSION['nombre_usuario'])) {
+              ?>
+              <li class="nav-item">
+                <a class="nav-link " href="index.php?modulo=miscompras">Mis compras</a>
+              </li>
+             
+                <a href="index.php?modulo=carrito">
+                  <img src="imagenes/carrito/carrito.png" alt="" width="40px">
+                </a>
+              
+              <?php
+            }
+            ?>
           </ul>
           <div class="org_botones_sesion">
             <?php
             if (!empty($_SESSION['nombre_usuario'])) {
               ?>
-              <div class="logo">
-                <a href="index.php?modulo=carrito">
-                  <img src="imagenes/carrito/carrito.png" alt="" width="40px">
-                </a>
-              </div>
+              
+
               <?php
 
               if ($_SESSION['roles'] == 'admin') {
                 ?>
 
-              <div class="separacion_botones_sesion">
-                <a href="index.php?modulo=carga" class="main_div_a_pink">ABM Productos</a>
-              </div>
-              <?php
+                <div class="separacion_botones_sesion">
+                  <a href="index.php?modulo=carga" class="main_div_a_pink">ABM Productos</a>
+                </div>
+                <?php
               }
               ?>
 
-            <div class="separacion_botones_sesion">
-              <p>Bienvenido
-                <?php echo $_SESSION['nombre_usuario']; ?>
-              </p>
-            </div>
-            <div class="separacion_botones_sesion">
-              <a href="index.php?modulo=iniciar_sesion&salir=ok" class="nav_a">Cerrar Sesión</a>
-            </div>
-            <?php
+              <div class="separacion_botones_sesion">
+                <p>Bienvenido
+                  <?php echo $_SESSION['nombre_usuario']; ?>
+                </p>
+              </div>
+              <div class="separacion_botones_sesion">
+                <a href="index.php?modulo=iniciar_sesion&salir=ok" class="nav_a">Cerrar Sesión</a>
+              </div>
+              <?php
             } else {
               ?>
-            <a class="nav_a" href="index.php?modulo=registro">Registrarse</a>
-            <a class="nav_a" href="index.php?modulo=iniciar_sesion">Iniciar Sesion</a>
-            <?php
+              <a class="nav_a" href="index.php?modulo=registro">Registrarse</a>
+              <a class="nav_a" href="index.php?modulo=iniciar_sesion">Iniciar Sesion</a>
+              <?php
             }
             ?>
+          </div>
         </div>
-      </div>
       </div>
     </nav>
   </header>

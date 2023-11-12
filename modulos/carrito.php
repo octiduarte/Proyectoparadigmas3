@@ -67,6 +67,6 @@ if ($_GET['accion'] == 'eliminar_carrito') {
     </table>
     <div>
         <a class="nav_a"
-            href="index.php?modulo=formulario&id=<?php echo $usuario_id; ?>">Continuar</a>
+            href="index.php?modulo=formulario&accion=form&id=<?php echo $usuario_id; ?>">Continuar</a>
     </div>
 </div>

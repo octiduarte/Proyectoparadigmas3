@@ -19,7 +19,7 @@
   font-family: monospace !important;
 }
 
-.nav_a{
+.nav_a {
   background-color: black;
   color: #ffffff;
   text-decoration: none;
@@ -96,7 +96,7 @@
     padding-bottom: 5em;
   }
 
-  .main_div_a{
+  .main_div_a {
     margin: 20px;
   }
   .main_div_h1 {
@@ -126,58 +126,54 @@
     align-items: center !important;
   }
 
-  .organizacion_popup{
+  .organizacion_popup {
     display: flex;
     flex-direction: column;
     align-items: center;
-
   }
-  .parte_derecha_popup h1{
+  .parte_derecha_popup h1 {
     font-size: 1.5em;
   }
-  .parte_derecha_popup p{
+  .parte_derecha_popup p {
     font-size: 0.9em;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
-  .content-popup{
+  .content-popup {
     width: 300px !important;
     min-height: 0px !important;
   }
 
-  #carouselExampleInterval{
+  #carouselExampleInterval {
     display: none !important;
   }
-  .org_botones_sesion{
+  .org_botones_sesion {
     flex-direction: column;
     align-items: flex-start !important;
   }
 
-  .org_ficha_unidad{
+  .org_ficha_unidad {
     flex-direction: column;
     align-items: center;
     padding: 5px !important;
   }
 
-  .org_ficha{
+  .org_ficha {
     margin: 2rem;
   }
-  .org_box{
+  .org_box {
     grid-template-columns: auto !important;
   }
 
-  .org_carga_form{
-    margin:1rem !important;
-  }
-  
-  .org_carga_tabla{
-    margin:1rem !important;
+  .org_carga_form {
+    margin: 1rem !important;
   }
 
-
-
+  .org_carga_tabla {
+    margin: 1rem !important;
+  }
 }
 
 .table > :not(caption) > * > * {
@@ -247,7 +243,6 @@ body {
   border-radius: 4px;
   background-color: #000000;
   box-shadow: 0 2px 5px #666666;
-  
 }
 .content-popup h2 {
   color: #ffffff;
@@ -270,125 +265,131 @@ body {
   right: 15px;
 }
 
-#close{
+#close {
   text-decoration: none;
   color: #ffffff !important;
-
 }
 
-.organizacion_popup{
+.organizacion_popup {
   display: flex;
   color: white;
   text-align: center;
 }
 
-.mail_popup{
+.mail_popup {
   width: auto !important;
   margin: 10px;
 }
 
-.parte_derecha_popup{
+.parte_derecha_popup {
   padding: 10px;
 }
 
-.p_popup{
+.p_popup {
   margin: 0 !important;
 }
 
-main a{
+main a {
   padding: 0px;
 }
 
-#carouselExampleInterval{
+#carouselExampleInterval {
   margin-top: 4em;
 }
 
-
-.org_registro{
+.org_registro {
   border-radius: 10px;
 }
 
-
-.org_box{
+.org_box {
   display: grid;
   grid-template-columns: 30% 50%;
 }
 
-.centrado_popup{
+.centrado_popup {
   display: flex !important;
   justify-content: center !important;
 }
 
-.org_botones_sesion{
+.org_botones_sesion {
   display: flex;
   align-items: center;
 }
 
-.separacion_botones_sesion{
+.separacion_botones_sesion {
   padding: 10px;
 }
 
-p{
+p {
   margin: 0 !important;
 }
 
-.org_ficha{
+.org_ficha {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 2rem;
 }
 
-.org_ficha_unidad{
+.org_ficha_unidad {
   border: 1px solid;
   border-radius: 20px;
   display: flex;
   padding: 20px;
 }
-.org_a_box{
+.org_a_box {
   display: flex;
 }
 
-.org_ficha_separacion{
+.org_ficha_separacion {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
 }
 
-.org_box_separacion{
+.org_box_separacion {
   display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
-
-.org_carga_form{
-  margin:5rem;
+.org_carga_form {
+  margin: 5rem;
 }
 
-.org_carga_tabla{
+.org_carga_tabla {
   text-align: center;
   margin: 5rem;
 }
 
-.logo{
+.logo {
   border: 1px solid;
   border-radius: 10px;
   padding: 10px;
 }
 
-.org_carrito{
+.org_carrito {
   display: flex;
   align-items: center;
-    flex-direction: column;
+  flex-direction: column;
 }
 
-.tbody, td, tfoot, th, thead, tr {
-  border-width: 1px !important; 
+.tbody,
+td,
+tfoot,
+th,
+thead,
+tr {
+  border-width: 1px !important;
 }
 
-.org_miscompras{
-display: flex;
-align-items: center;
-    flex-direction: column;
+.org_miscompras {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.logo_carrito:hover {
+  transition: transform 0.1s ease-in-out;
+  transform: scale(0.9);
 }

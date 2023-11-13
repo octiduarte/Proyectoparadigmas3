@@ -28,27 +28,27 @@ conectar();
           aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="index.php">Air.</a>
+        <a class="navbar-brand logo_carrito" href="index.php">Air.</a>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link " aria-current="page" href="index.php">Home</a>
+              <a class="nav-link logo_carrito" aria-current="page" href="index.php">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link " href="#">Nosotros</a>
+              <a class="nav-link logo_carrito" href="#">Nosotros</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link " href="index.php?modulo=box">Productos</a>
+              <a class="nav-link logo_carrito " href="index.php?modulo=box">Productos</a>
             </li>
             <?php
             if (!empty($_SESSION['nombre_usuario'])) {
               ?>
               <li class="nav-item">
-                <a class="nav-link " href="index.php?modulo=miscompras">Mis compras</a>
+                <a class="nav-link logo_carrito" href="index.php?modulo=miscompras">Mis compras</a>
               </li>
              
-                <a href="index.php?modulo=carrito">
-                  <img src="imagenes/carrito/carrito.png" alt="" width="40px">
+                <a  href="index.php?modulo=carrito">
+                  <img class="logo_carrito" src="imagenes/carrito/carrito.png" alt="" width="40px">
                 </a>
               
               <?php
@@ -66,8 +66,8 @@ conectar();
               if ($_SESSION['roles'] == 'admin') {
                 ?>
 
-                <div class="separacion_botones_sesion">
-                  <a href="index.php?modulo=carga" class="main_div_a_pink">ABM Productos</a>
+                <div class="separacion_botones_sesion logo_carrito">
+                  <a href="index.php?modulo=carga" class="main_div_a_pink logo_carrito">ABM Productos</a>
                 </div>
                 <?php
               }
@@ -78,14 +78,14 @@ conectar();
                   <?php echo $_SESSION['nombre_usuario']; ?>
                 </p>
               </div>
-              <div class="separacion_botones_sesion">
-                <a href="index.php?modulo=iniciar_sesion&salir=ok" class="nav_a">Cerrar Sesión</a>
+              <div class="separacion_botones_sesion logo_carrito">
+                <a href="index.php?modulo=iniciar_sesion&salir=ok" class="nav_a logo_carrito">Cerrar Sesión</a>
               </div>
               <?php
             } else {
               ?>
-              <a class="nav_a" href="index.php?modulo=registro">Registrarse</a>
-              <a class="nav_a" href="index.php?modulo=iniciar_sesion">Iniciar Sesion</a>
+              <a class="nav_a logo_carrito" href="index.php?modulo=registro">Registrarse</a>
+              <a class="nav_a logo_carrito" href="index.php?modulo=iniciar_sesion">Iniciar Sesion</a>
               <?php
             }
             ?>

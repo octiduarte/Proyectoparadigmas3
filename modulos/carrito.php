@@ -38,7 +38,7 @@ if ($_GET['accion'] == 'eliminar_carrito') {
             $sql = mysqli_query($con, $sql);
             if (mysqli_num_rows($sql) != 0) {
                 while ($r = mysqli_fetch_array($sql)) {
-                    ?>
+            ?>
                     <tr>
                         <th scope="row">
                             <?php echo $r['producto_id']; ?>
@@ -54,15 +54,14 @@ if ($_GET['accion'] == 'eliminar_carrito') {
                         </td>
                         <td>
 
-                            <a
-                                href="javascript:if(confirm('Desea eliminar el producto del carrito?')) window.location='index.php?modulo=carrito&accion=eliminar_carrito&id=<?php echo $r['producto_id']; ?>'">Eliminar</a>
+                            <a href="javascript:if(confirm('Desea eliminar el producto del carrito?')) window.location='index.php?modulo=carrito&accion=eliminar_carrito&id=<?php echo $r['producto_id']; ?>'">Eliminar</a>
                         </td>
                     </tr>
                     <tr>
-                        <?php
+                <?php
                 }
             }
-            ?>
+                ?>
         </tbody>
     </table>
     <?php
@@ -73,14 +72,14 @@ if ($_GET['accion'] == 'eliminar_carrito') {
     $totalProductosEnCarrito = $row['total'];
 
     if ($totalProductosEnCarrito > 0) {
-        ?>
+    ?>
         <div>
             <a class="nav_a" href="index.php?modulo=formulario&accion=form&id=<?php echo $usuario_id; ?>">Continuar</a>
         </div>
-        <?php
-    }
-    else{
+    <?php
+    } else {
         echo "<h3> Carrito vacio </h3>";
     }
     ?>
 </div>
+

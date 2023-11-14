@@ -72,6 +72,18 @@ if ($_GET['accion'] == 'guardar_eliminar') {
     }
 }
 
+//store procedure 10% aumento
+if ($_GET['accion'] == 'actualizar') {
+    $sql = "CALL actualizar_precios()";
+    $resultado = mysqli_query($con, $sql);
+
+    // Manejar el resultado
+    if ($resultado) {
+        echo "<script> alert('Productos aumentados 10% con exito');</script>";
+    } else {
+        echo "Error al llamar al stored procedure: " . mysqli_error($con);
+    }
+}
 ?>
 
 
@@ -101,8 +113,7 @@ if ($_GET['accion'] == 'guardar_eliminar') {
             </div>
             <div class="mb-3">
                 <label class="form-label">Descripcion</label>
-                <input type="text" class="form-control" id="descripcion" name="descripcion"
-                    value="<?php echo $r['descripcion']; ?>">
+                <input type="text" class="form-control" id="descripcion" name="descripcion" value="<?php echo $r['descripcion']; ?>">
             </div>
             <div class="mb-3">
                 <label class="form-label">Precio</label>
@@ -113,9 +124,9 @@ if ($_GET['accion'] == 'guardar_eliminar') {
                 <input type="file" class="form-control" id="foto" name="foto">
                 <?php
                 if (!empty($r['foto'])) {
-                    ?>
+                ?>
                     <img src="imagenes/<?php echo $r['foto']; ?>" width="50%">
-                    <?php
+                <?php
                 }
                 ?>
             </div>
@@ -143,7 +154,7 @@ if ($_GET['accion'] == 'guardar_eliminar') {
             $sql = mysqli_query($con, $sql);
             if (mysqli_num_rows($sql) != 0) {
                 while ($r = mysqli_fetch_array($sql)) {
-                    ?>
+            ?>
                     <tr>
                         <th scope="row">
                             <?php echo $r['id']; ?>
@@ -156,15 +167,17 @@ if ($_GET['accion'] == 'guardar_eliminar') {
                         </td>
                         <td> <a href="index.php?modulo=carga&accion=editar&id=<?php echo $r['id']; ?>">Editar</a>
                             -
-                            <a
-                                href="javascript:if(confirm('Desea eliminar el registro?')) window.location='index.php?modulo=carga&accion=guardar_eliminar&id=<?php echo $r['id']; ?>'">Eliminar</a>
+                            <a href="javascript:if(confirm('Desea eliminar el registro?')) window.location='index.php?modulo=carga&accion=guardar_eliminar&id=<?php echo $r['id']; ?>'">Eliminar</a>
                         </td>
                     </tr>
                     <tr>
-                        <?php
+                <?php
                 }
             }
-            ?>
+                ?>
         </tbody>
     </table>
+    <div>
+        <a class="nav_a" href="index.php?modulo=carga&accion=actualizar">Actualizar 10% todos los productos</a>
+    </div>
 </div>

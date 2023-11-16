@@ -84,6 +84,19 @@ if ($_GET['accion'] == 'actualizar') {
         echo "Error al llamar al stored procedure: " . mysqli_error($con);
     }
 }
+
+if ($_GET['accion'] == 'descontar') {
+    $sql = "CALL descuento()";
+    $resultado = mysqli_query($con, $sql);
+    echo mysqli_error($con);
+    // Manejar el resultado
+    if ($resultado) {
+        echo "<script> alert('Descuento aplicado');</script>";
+    } else {
+        echo "Error al llamar al stored procedure: " . mysqli_error($con);
+    }
+}
+
 ?>
 
 

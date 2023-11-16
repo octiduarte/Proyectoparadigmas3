@@ -18,7 +18,7 @@ if ($resultado_compras) {
                 <?php echo $compra_id ?>
             </h3>
             <p>Total:
-                <?php echo $total_compra ?>
+                <?php echo $total_compra ?>$
             </p>
             <?php
             // Consulta para obtener los detalles de la compra

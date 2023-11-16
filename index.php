@@ -2,6 +2,21 @@
 session_start();
 include('includes/conexion.php');
 conectar();
+
+if (!isset($_GET['accion']))
+    $_GET['accion'] = '';
+
+if ($_GET['accion'] == 'descontar') {
+  $sql = "CALL descuento()";
+  $resultado = mysqli_query($con, $sql);
+  echo mysqli_error($con);
+  // Manejar el resultado
+  if ($resultado) {
+      echo "<script> alert('Descuento aplicado');</script>";
+  } else {
+      echo "Error al llamar al stored procedure: " . mysqli_error($con);
+  }
+}
 ?>
 
 
@@ -12,8 +27,7 @@ conectar();
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Proyecto paradigmas</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap" rel="stylesheet" />
@@ -24,8 +38,7 @@ conectar();
   <header class="header_estilo">
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03"
-          aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <a class="navbar-brand logo_carrito" href="index.php">Air.</a>
@@ -42,34 +55,34 @@ conectar();
             </li>
             <?php
             if (!empty($_SESSION['nombre_usuario'])) {
-              ?>
+            ?>
               <li class="nav-item">
                 <a class="nav-link logo_carrito" href="index.php?modulo=miscompras">Mis compras</a>
               </li>
-             
-                <a  href="index.php?modulo=carrito">
-                  <img class="logo_carrito" src="imagenes/carrito/carrito.png" alt="" width="40px">
-                </a>
-              
-              <?php
+
+              <a href="index.php?modulo=carrito">
+                <img class="logo_carrito" src="imagenes/carrito/carrito.png" alt="" width="40px">
+              </a>
+
+            <?php
             }
             ?>
           </ul>
           <div class="org_botones_sesion">
             <?php
             if (!empty($_SESSION['nombre_usuario'])) {
-              ?>
-              
+            ?>
+
 
               <?php
 
               if ($_SESSION['roles'] == 'admin') {
-                ?>
+              ?>
 
                 <div class="separacion_botones_sesion logo_carrito">
                   <a href="index.php?modulo=carga" class="main_div_a_pink logo_carrito">ABM Productos</a>
                 </div>
-                <?php
+              <?php
               }
               ?>
 
@@ -81,12 +94,12 @@ conectar();
               <div class="separacion_botones_sesion logo_carrito">
                 <a href="index.php?modulo=iniciar_sesion&salir=ok" class="nav_a logo_carrito">Cerrar Sesión</a>
               </div>
-              <?php
+            <?php
             } else {
-              ?>
+            ?>
               <a class="nav_a logo_carrito" href="index.php?modulo=registro">Registrarse</a>
               <a class="nav_a logo_carrito" href="index.php?modulo=iniciar_sesion">Iniciar Sesion</a>
-              <?php
+            <?php
             }
             ?>
           </div>
@@ -100,7 +113,7 @@ conectar();
     if (!empty($_GET['modulo'])) {
       include('modulos/' . $_GET['modulo'] . '.php');
     } else {
-      ?>
+    ?>
       <div id="popup" style="display: none">
         <div class="content-popup">
           <div>
@@ -115,17 +128,15 @@ conectar();
                 <p class="p_popup">
                   Completa tu correo para recibir el regalo!
                 </p>
-                <form action="">
+                <div>
                   <div class="col-12 centrado_popup">
-                    <input type="text" class="form-control mail_popup" id="inputAddress"
-                      placeholder="Correo electronico" />
+                    <input type="text" class="form-control mail_popup" id="inputAddress" placeholder="Correo electronico" />
                   </div>
                   <div class="col-12">
-                    <button type="submit" id="conf" class="btn btn-light confirmar_popup">
-                      Confirmar
-                    </button>
+                    <a href="index.php?accion=descontar" class="btn btn-light confirmar_popup"> 
+                    Confirmar</a>
                   </div>
-                </form>
+                </div>
               </div>
             </div>
           </div>
@@ -154,40 +165,36 @@ conectar();
               <img src="imagenes/CarrouselInicio/remera3.jpg" class="d-block w-100" alt="...">
             </div>
           </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
-            data-bs-slide="prev">
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
           </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
-            data-bs-slide="next">
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
           </button>
         </div>
       </div>
-      <?php
+    <?php
     }
 
     ?>
   </main>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
   <script>
-    $(document).ready(function () {
+    $(document).ready(function() {
       // Establecer un tiempo de espera de 3 segundos (3000 milisegundos)
-      setTimeout(function () {
+      setTimeout(function() {
         // Abrir el popup
         $("#popup").fadeIn("slow");
         $(".popup-overlay").fadeIn("slow");
         $(".popup-overlay").height($(window).height());
-      }, 2000); // Fin del tiempo de espera
+      }, 5000); // Fin del tiempo de espera
 
       // Cerrar el popup al hacer clic en el botón de cerrar
-      $("#close, #conf").on("click", function () {
+      $("#close, #conf").on("click", function() {
         $("#popup").fadeOut("slow");
         $(".popup-overlay").fadeOut("slow");
         return false;

@@ -3,7 +3,7 @@
 function conectar()
 {
     global $con;
-    $con = mysqli_connect("localhost", "root", "", "proyecto_paradigmas");
+    $con = mysqli_connect("localhost", "root", "1234", "proyecto_paradigmas");
     /* comprobar la conexion */
     if (mysqli_connect_errno()) {
         printf("Fallo la conexion : %s\n", mysqli_connect_error());

@@ -1,23 +1,15 @@
-
 <?php
-function conectar()
-{
-    global $con;
-    $con = mysqli_connect("localhost", "root", "1234", "proyecto_paradigmas");
-    /* comprobar la conexion */
-    if (mysqli_connect_errno()) {
-        printf("Fallo la conexion : %s\n", mysqli_connect_error());
-        exit();
-    } else {
-        $con->set_charset("utf8");
-        $ret = true;
-    }
-    return $ret;
+function conectar() {
+    $host = "mysql.railway.internal";
+    $user = "root";
+    $pass = "bsXbcSPYBxRtqnySclAwXFOyqGsdhfdU";
+    $dbname = "railway";
+    $con = mysqli_connect($host, $user, $pass, $dbname);
 
-}
-function desconectar()
-{
-    global $con;
-    mysqli_close($con);
+    if (!$con) {
+        die("Error de conexión: " . mysqli_connect_error());
+    }
+
+    return $con;
 }
 ?>

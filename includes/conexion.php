@@ -1,6 +1,6 @@
 <?php
 function conectar() {
-    $host = "mysql.railway.internal";
+    $host = "shinkansen.proxy.rlwy.net";
     $user = "root";
     $pass = "bsXbcSPYBxRtqnySclAwXFOyqGsdhfdU";
     $dbname = "railway";

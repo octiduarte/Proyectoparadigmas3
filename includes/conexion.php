@@ -1,23 +1,30 @@
-
 <?php
 function conectar()
 {
     global $con;
-    $con = mysqli_connect("trolley.proxy.rlwy.net", "root", "SWrZBkuPenTQpMTYEvPPVNzJfzZPhEpr", "railway");
-    /* comprobar la conexion */
-    if (mysqli_connect_errno()) {
-        printf("Fallo la conexion : %s\n", mysqli_connect_error());
+    
+    $host = "trolley.proxy.rlwy.net"; // Usa el host público de Railway
+    $user = "root"; // Usuario de Railway
+    $pass = "SWrZBkuPenTQpMTYEvPPVNzJfzZPhEpr"; // Pon la contraseña que aparece en Railway
+    $db   = "railway"; // Nombre de la base de datos
+    $port = 56502; // Puerto de Railway
+
+    $con = mysqli_connect($host, $user, $pass, $db, $port);
+
+    if (!$con) {
+        printf("Fallo la conexión: %s\n", mysqli_connect_error());
         exit();
     } else {
         $con->set_charset("utf8");
-        $ret = true;
+        return true;
     }
-    return $ret;
-
 }
+
 function desconectar()
 {
     global $con;
-    mysqli_close($con);
+    if ($con) {
+        mysqli_close($con);
+    }
 }
 ?>

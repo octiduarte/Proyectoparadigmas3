@@ -3,7 +3,7 @@
 function conectar()
 {
     global $con;
-    $con = mysqli_connect("mysql-jrmc.railway.internal", "root", "SWrZBkuPenTQpMTYEvPPVNzJfzZPhEpr", "railway");
+    $con = mysqli_connect("trolley.proxy.rlwy.net", "root", "SWrZBkuPenTQpMTYEvPPVNzJfzZPhEpr", "railway");
     /* comprobar la conexion */
     if (mysqli_connect_errno()) {
         printf("Fallo la conexion : %s\n", mysqli_connect_error());
